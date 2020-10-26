@@ -145,9 +145,6 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # Django REST Framework
 REST_FRAMEWORK = {
-    'DEFAULT_RENDERER_CLASSES': (
-        'rest_framework.renderers.JSONRenderer',
-    ),
     'DEFAUFT_AUTHENTICATION_CLASSES': (
         'rest_framework.authentication.TokenAuthentication',
     ),
