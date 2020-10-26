@@ -81,7 +81,7 @@ export default {
         swal("Imagen subida exitosamente!", "", "success")
       })
       .catch((error) => {
-        swal("Hubo un error!", error, "error")
+        console.log(error)
       })
     },
   },
