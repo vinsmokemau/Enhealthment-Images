@@ -31,7 +31,7 @@
                 <div class="form-group row">
                   <label for="image" class="col-sm-2 col-form-label">Imagen</label>
                   <div class="col-sm-6">
-                    <input type="file" name="image" class="form-control">
+                    <input type="file" @change="onFileSelected" name="image" class="form-control">
                   </div>                  
                 </div>
 
@@ -64,20 +64,33 @@ export default {
     return {
       form: {
         name: '',
-        image: '',
+        image: null,
       },
     }
   },
   methods: {
+    onFileSelected (event) {
+      this.form.image = event.target.files[0]
+    },
     onSubmit (evt) {
       evt.preventDefault()
 
+      const fd = new FormData();
+
+      fd.append('image', this.form.image)
+
       const path = `http://localhost:8000/api/v1.0/images/`
 
-      axios.post(path).then((response) => {
+      axios.post(path,
+        fd,
+        {
+          headers: {
+            'Content-Type': 'multipart/form-data'
+          }
+        }
+      ).then((response) => {
         this.form.name = response.data.name
-        this.form.image = response.data.image
-
+        this.form.image = response.data.path
         swal("Imagen subida exitosamente!", "", "success")
       })
       .catch((error) => {

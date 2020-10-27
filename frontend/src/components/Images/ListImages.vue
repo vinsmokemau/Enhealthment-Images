@@ -21,16 +21,15 @@
             </div>
             <p class="mt-3">Página: {{ currentPage }}</p>
 
-            <b-table 
-              striped hover 
-              :items="events"
-              :fields="fields"
-              :per-page="perPage"
-              :current-page="currentPage">
-              <template slot="action" slot-scope="data">
-                <b-button size="sm" variant="primary" :to="{ name:'Event', params: {eventUUID: data.item.uuid} }">
-                  Ver más
-                </b-button>
+            <b-table striped hover :items="images" :fields="fields">
+              <template v-slot:cell(id)="row">
+                <p>{{row.item.id}}</p>
+              </template>
+              <template v-slot:cell(name)="row">
+                <p>{{row.item.name}}</p>
+              </template>
+              <template v-slot:cell(image)="row">
+                <img :src="row.item.image" style="width: 200px; height: 200px;">
               </template>
             </b-table>
           </div>
@@ -49,23 +48,19 @@ export default {
       perPage: 5,
       currentPage: 1,
       fields: [
-        { key: 'uuid', label: 'UUID'},
+        { key: 'id', label: 'ID'},
         { key: 'name', label: 'Nombre'},
-        { key: 'reporter', label: 'Reporter'},
-        { key: 'description', label: 'Descripción'},
-        { key: 'type', label: 'Tipo'},
-        { key: 'location', label: 'Locación'},
-        { key: 'datetime', label: 'Fecha Unix'},
+        { key: 'image', label: 'Imagen'},
         { key: 'action', label: ''},
       ],
-      events: [],
+      images: [],
     }
   },
   methods: {
-    getEvents () {
-      const path = 'http://localhost:8000/events/'
+    getImages () {
+      const path = 'http://localhost:8000/api/v1.0/images/'
       axios.get(path).then((response) => {
-        this.events = response.data
+        this.images = response.data
       })
       .catch((error) => {
         console.log(error)
@@ -74,11 +69,11 @@ export default {
   },
   computed: {
     rows() {
-      return this.events.length
+      return this.images.length
     }
   },
   created(){
-    this.getEvents()
+    this.getImages()
   }
 }
 </script>

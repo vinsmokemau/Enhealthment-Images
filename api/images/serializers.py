@@ -20,6 +20,6 @@ class OriginalImageSerializer(serializers.ModelSerializer):
         )
 
     def create(self, validated_data):
-    	print(validated_data)
+    	print(type(validated_data['image']))
     	new_original_image = OriginalImage.objects.create(**validated_data)
     	return new_original_image
