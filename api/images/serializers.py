@@ -88,11 +88,11 @@ class OriginalImageSerializer(serializers.ModelSerializer):
         )
         equalize_enhancement = EnhancementImage(
             original=new_original_image,
-            method='Gamma Correction',
+            method='Equalize',
         )
         adaptative_enhancement = EnhancementImage(
             original=new_original_image,
-            method='Gamma Correction',
+            method='Adapatative Equalize',
         )
 
         gamma_enhancement.image.save(gc_name, gc_img)
