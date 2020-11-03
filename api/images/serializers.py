@@ -25,8 +25,26 @@ from skimage import (
 import numpy as np
 
 
+class EnhancementImageSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = EnhancementImage
+        fields = (
+            'id',
+            'method',
+            'image',
+        )
+
+
+
 class OriginalImageSerializer(serializers.ModelSerializer):
     """."""
+
+    enhancements = EnhancementImageSerializer(
+        read_only=True,
+        required=False,
+        many=True
+    )
 
     class Meta:
 
@@ -35,6 +53,7 @@ class OriginalImageSerializer(serializers.ModelSerializer):
             'id',
             'name',
             'image',
+            'enhancements',
         )
 
     def create(self, validated_data):
