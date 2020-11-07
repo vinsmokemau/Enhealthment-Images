@@ -1,3 +1,4 @@
+import 'package:Enhealthment_app/constants.dart';
 import 'package:flutter/material.dart';
 import 'dart:io';
 import 'dart:convert';
@@ -70,7 +71,6 @@ class _UploadImageState extends State<UploadImage> {
           return Flexible(
             child: Image.file(
               snapshot.data,
-              fit: BoxFit.fill,
             ),
           );
         } else if (null != snapshot.error) {
@@ -91,17 +91,26 @@ class _UploadImageState extends State<UploadImage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text("Upload Image"),
-      ),
+      backgroundColor: kPrimaryBackgroundColor,
       body: Container(
         padding: EdgeInsets.all(30.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
-            OutlineButton(
+            FlatButton(
+              padding: const EdgeInsets.all(10),
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(20)),
+              color: Colors.white,
+              textColor: kPrimaryColor,
               onPressed: chooseImage,
-              child: Text('Choose Image'),
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 38.0),
+                child: Text(
+                  "Cargar desde Galería",
+                  style: TextStyle(fontSize: 30),
+                ),
+              ),
             ),
             SizedBox(
               height: 20.0,
