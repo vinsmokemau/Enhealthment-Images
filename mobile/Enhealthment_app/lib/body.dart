@@ -22,8 +22,8 @@ class _BodyState extends State<Body> {
     );
     setState(() {
       _image = image.path;
-
-      _upload(_image);
+      File tmpImage = File(_image);
+      _upload(tmpImage);
     });
   }
 
@@ -31,7 +31,8 @@ class _BodyState extends State<Body> {
     String fileName = file.path.split('/').last;
 
     FormData data = FormData.fromMap({
-      "file": await MultipartFile.fromFile(
+      "name": fileName,
+      "image": await MultipartFile.fromFile(
         file.path,
         filename: fileName,
       ),
