@@ -1,12 +1,12 @@
 import 'dart:convert';
 
-Individual individualFromJson(String str) =>
-    Individual.fromJson(json.decode(str));
+Enhancement enhancementFromJson(String str) =>
+    Enhancement.fromJson(json.decode(str));
 
-String individualToJson(Individual data) => json.encode(data.toJson());
+String enhancementToJson(Enhancement data) => json.encode(data.toJson());
 
-class Individual {
-  Individual({
+class Enhancement {
+  Enhancement({
     this.id,
     this.name,
     this.image,
@@ -16,14 +16,14 @@ class Individual {
   int id;
   String name;
   String image;
-  List<Enhancement> enhancements;
+  List<EnhancementElement> enhancements;
 
-  factory Individual.fromJson(Map<String, dynamic> json) => Individual(
+  factory Enhancement.fromJson(Map<String, dynamic> json) => Enhancement(
         id: json["id"],
         name: json["name"],
         image: json["image"],
-        enhancements: List<Enhancement>.from(
-            json["enhancements"].map((x) => Enhancement.fromJson(x))),
+        enhancements: List<EnhancementElement>.from(
+            json["enhancements"].map((x) => EnhancementElement.fromJson(x))),
       );
 
   Map<String, dynamic> toJson() => {
@@ -34,8 +34,8 @@ class Individual {
       };
 }
 
-class Enhancement {
-  Enhancement({
+class EnhancementElement {
+  EnhancementElement({
     this.id,
     this.method,
     this.image,
@@ -45,7 +45,8 @@ class Enhancement {
   String method;
   String image;
 
-  factory Enhancement.fromJson(Map<String, dynamic> json) => Enhancement(
+  factory EnhancementElement.fromJson(Map<String, dynamic> json) =>
+      EnhancementElement(
         id: json["id"],
         method: json["method"],
         image: json["image"],

@@ -1,3 +1,4 @@
+import 'package:Enhealthment_app/splash.dart';
 import 'package:flutter/material.dart';
 import 'package:Enhealthment_app/UploadImage.dart';
 import 'package:Enhealthment_app/home_screen.dart';
@@ -13,7 +14,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Enhealtment Images',
       debugShowCheckedModeBanner: false,
-      home: HomeScreen(),
+      home: SplashScreen(),
     );
   }
 }
