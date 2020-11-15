@@ -15,5 +15,5 @@ from .models import (
 class OriginalImageViewset(viewsets.ModelViewSet):
     """docstring for OriginalImageViewset."""
 
-    queryset = OriginalImage.objects.all()
+    queryset = OriginalImage.objects.order_by('-id')
     serializer_class = OriginalImageSerializer
