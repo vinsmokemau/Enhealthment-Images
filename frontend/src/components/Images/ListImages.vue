@@ -22,14 +22,18 @@
             <p class="mt-3">Página: {{ currentPage }}</p>
 
             <b-table striped hover :items="images" :fields="fields">
-              <template v-slot:cell(id)="row">
-                <p>{{row.item.id}}</p>
-              </template>
               <template v-slot:cell(name)="row">
                 <p>{{row.item.name}}</p>
               </template>
               <template v-slot:cell(image)="row">
+                <a :href="row.item.image" target="blank" ><span>Original: </span></a>
                 <img :src="row.item.image" style="width: 200px; height: 200px;">
+              </template>
+              <template v-slot:cell(enhancements)="row">
+                <li v-for="enhancement in row.item.enhancements" :key="enhancement.image">
+                  <a :href="enhancement.image" target="blank" ><span>{{ enhancement.method }}: </span></a>
+                  <img :src="enhancement.image" style="width: 200px; height: 200px;">
+                </li>
               </template>
             </b-table>
           </div>
@@ -48,17 +52,16 @@ export default {
       perPage: 5,
       currentPage: 1,
       fields: [
-        { key: 'id', label: 'ID'},
         { key: 'name', label: 'Nombre'},
         { key: 'image', label: 'Imagen'},
-        { key: 'action', label: ''},
+        { key: 'enhancements', label: 'Mejoras'},
       ],
       images: [],
     }
   },
   methods: {
     getImages () {
-      const path = 'http://localhost:8000/api/v1.0/images/'
+      const path = 'http://164.90.146.236:8000/api/v1.0/images/'
       axios.get(path).then((response) => {
         this.images = response.data
       })
