@@ -20,6 +20,7 @@ from skimage import (
     color,
     io,
     exposure,
+    filters,
 )
 
 import numpy as np
@@ -69,18 +70,22 @@ class OriginalImageSerializer(serializers.ModelSerializer):
         gc_name = name.replace('original_images/','gc_')
         eq_name = name.replace('original_images/','eq_')
         adapteq_name = name.replace('original_images/','adpteq_')
+        unsharp_name = name.replace('original_images/','unsharp_')
         
         gc = exposure.adjust_gamma(img, 2)
         eq = exposure.equalize_hist(img)
         adapteq = exposure.equalize_adapthist(img, clip_limit=0.05)
+        unsharp = filters.unsharp_mask(img, radius=3, amount=1.0)
 
         io.imsave(gc_name, gc)
         io.imsave(eq_name, eq)
         io.imsave(adapteq_name, adapteq)
+        io.imsave(unsharp_name, unsharp)
 
         gc_img = File(open(gc_name, 'rb'))
         eq_img = File(open(eq_name, 'rb'))
         adapteq_img = File(open(adapteq_name, 'rb'))
+        unsharp_img = File(open(unsharp_name, 'rb'))
 
         gamma_enhancement = EnhancementImage(
             original=new_original_image,
@@ -94,13 +99,19 @@ class OriginalImageSerializer(serializers.ModelSerializer):
             original=new_original_image,
             method='Adapatative Equalize',
         )
+        unsharp_enhancement = EnhancementImage(
+            original=new_original_image,
+            method='Unsharp',
+        )
 
         gamma_enhancement.image.save(gc_name, gc_img)
         equalize_enhancement.image.save(eq_name, eq_img)
         adaptative_enhancement.image.save(adapteq_name, adapteq_img)
+        unsharp_enhancement.image.save(unsharp_name, unsharp_img)
 
         os.remove(gc_name)
         os.remove(eq_name)
         os.remove(adapteq_name)
+        os.remove(unsharp_name)
 
         return new_original_image
