@@ -12,7 +12,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Enhealtment Images',
+      title: 'Imhealthment',
       debugShowCheckedModeBanner: false,
       home: SplashScreen(),
     );

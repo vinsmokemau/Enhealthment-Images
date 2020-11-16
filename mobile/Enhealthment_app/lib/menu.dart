@@ -4,6 +4,7 @@ import 'package:Enhealthment_app/constants.dart';
 import 'package:Enhealthment_app/methods.dart';
 import 'package:Enhealthment_app/presentacion.dart';
 import 'package:Enhealthment_app/Antonio.dart';
+import 'package:Enhealthment_app/zoom_image.dart';
 
 bool back = false;
 

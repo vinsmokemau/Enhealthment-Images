@@ -49,7 +49,7 @@ class _SplashScreenState extends State<SplashScreen> {
               Image.asset('assets/icons/camara_rayoz.png',
                   width: MediaQuery.of(context).size.width * 0.7),
               Text(
-                "Enhealthment Images",
+                "Imhealthment",
                 textAlign: TextAlign.center,
                 style: TextStyle(color: Colors.white, fontSize: 30),
               )

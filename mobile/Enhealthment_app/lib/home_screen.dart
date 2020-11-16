@@ -9,7 +9,6 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: buildAppBar(),
       body: SplashScreen(),
       backgroundColor: kPrimaryBackgroundColor,
     );
@@ -18,7 +17,7 @@ class HomeScreen extends StatelessWidget {
   AppBar buildAppBar() {
     return AppBar(
         title: Text(
-          "Enhealthment Images",
+          "Imhealthment",
         ),
         backgroundColor: Color(0xff326eaf),
         elevation: 0,

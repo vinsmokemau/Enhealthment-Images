@@ -92,8 +92,9 @@ class _MauProfileState extends State<MauProfile> {
                 context, MaterialPageRoute(builder: (context) => Menu()));
           },
         ),
+        centerTitle: true,
         title: Text(
-          'Regresar',
+          'Datos de Contacto',
           style: TextStyle(color: kPrimaryTextColor),
         ),
         backgroundColor: Color(0xffbdfbfc),
@@ -183,7 +184,7 @@ class _MauProfileState extends State<MauProfile> {
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: 12.0, vertical: 12.0),
                 child: Text(
-                  'Contacto',
+                  'Contactar',
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 24.0,

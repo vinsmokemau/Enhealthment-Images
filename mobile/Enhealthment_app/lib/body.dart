@@ -1,3 +1,4 @@
+import 'package:Enhealthment_app/zoom_image.dart';
 import 'package:flutter/material.dart';
 import 'dart:io';
 import 'dart:convert';
@@ -180,7 +181,15 @@ class _BodyState extends State<Body> {
                           height: MediaQuery.of(context).size.width,
                           child: Flexible(
                               child: actual_url != null
-                                  ? Image.network(actual_url.image)
+                                  ? InkWell(
+                                      onTap: () {
+                                        Navigator.push(
+                                            context,
+                                            MaterialPageRoute(
+                                                builder: (context) =>
+                                                    ZoomImage()));
+                                      },
+                                      child: Image.network(actual_url.image))
                                   : Center(
                                       child: Text(
                                         'Sube una imagen desde tu galería o toma una foto.',
