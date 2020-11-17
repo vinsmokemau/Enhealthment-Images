@@ -47,7 +47,9 @@ class _ZoomMethodState extends State<ZoomMethod> {
         centerTitle: true,
         title: Text(
           'Imagen Mejorada',
-          style: TextStyle(color: kPrimaryTextColor),
+          style: TextStyle(
+              color: kPrimaryTextColor,
+              fontSize: MediaQuery.of(context).size.width * 0.07),
         ),
         backgroundColor: Color(0xffbdfbfc),
         actions: [],

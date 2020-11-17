@@ -85,7 +85,9 @@ class _ArgeoProfileState extends State<ArgeoProfile> {
         centerTitle: true,
         title: Text(
           'Datos de Contacto',
-          style: TextStyle(color: kPrimaryTextColor),
+          style: TextStyle(
+              color: kPrimaryTextColor,
+              fontSize: MediaQuery.of(context).size.width * 0.07),
         ),
         backgroundColor: Color(0xffbdfbfc),
         actions: [],
@@ -96,7 +98,7 @@ class _ArgeoProfileState extends State<ArgeoProfile> {
         child: SingleChildScrollView(
           child: Column(
             children: [
-              SizedBox(height: 30.0),
+              SizedBox(height: MediaQuery.of(context).size.width * 0.09),
               Padding(
                 padding: EdgeInsets.all(18.0),
                 child: Container(
@@ -118,7 +120,7 @@ class _ArgeoProfileState extends State<ArgeoProfile> {
                   'Argeo Thelian',
                   style: TextStyle(
                     color: Colors.black,
-                    fontSize: 32.0,
+                    fontSize: MediaQuery.of(context).size.width * 0.1,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
@@ -135,7 +137,7 @@ class _ArgeoProfileState extends State<ArgeoProfile> {
                       },
                       child: SvgPicture.asset(
                         'assets/icons/facebook.svg',
-                        width: 30.0,
+                        width: MediaQuery.of(context).size.width * 0.09,
                       ),
                     ),
                     GestureDetector(
@@ -144,7 +146,7 @@ class _ArgeoProfileState extends State<ArgeoProfile> {
                       },
                       child: SvgPicture.asset(
                         'assets/icons/twitter.svg',
-                        width: 30.0,
+                        width: MediaQuery.of(context).size.width * 0.09,
                       ),
                     ),
                     GestureDetector(
@@ -153,14 +155,14 @@ class _ArgeoProfileState extends State<ArgeoProfile> {
                       },
                       child: SvgPicture.asset(
                         'assets/icons/instagram.svg',
-                        width: 30.0,
+                        width: MediaQuery.of(context).size.width * 0.09,
                       ),
                     ),
                   ],
                 ),
               ),
               SizedBox(
-                height: 18.0,
+                height: MediaQuery.of(context).size.width * 0.04,
               ),
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: 12.0, vertical: 12.0),
@@ -168,7 +170,7 @@ class _ArgeoProfileState extends State<ArgeoProfile> {
                   'Contactar',
                   style: TextStyle(
                     color: Colors.white,
-                    fontSize: 24.0,
+                    fontSize: MediaQuery.of(context).size.width * 0.06,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
@@ -265,7 +267,8 @@ class _ArgeoProfileState extends State<ArgeoProfile> {
                             child: Text('Enviar',
                                 style: TextStyle(
                                   color: Colors.white,
-                                  fontSize: 18.0,
+                                  fontSize:
+                                      MediaQuery.of(context).size.width * 0.051,
                                 )),
                           ),
                           color: kSecondaryColor,
@@ -279,7 +282,7 @@ class _ArgeoProfileState extends State<ArgeoProfile> {
                 ),
               ),
               SizedBox(
-                height: 12.0,
+                height: MediaQuery.of(context).size.width * 0.05,
               ),
             ],
           ),

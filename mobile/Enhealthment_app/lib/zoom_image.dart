@@ -27,7 +27,9 @@ class _ZoomImageState extends State<ZoomImage> {
         centerTitle: true,
         title: Text(
           'Imagen Ingresada',
-          style: TextStyle(color: kPrimaryTextColor),
+          style: TextStyle(
+              color: kPrimaryTextColor,
+              fontSize: MediaQuery.of(context).size.width * 0.07),
         ),
         backgroundColor: Color(0xffbdfbfc),
         actions: [],

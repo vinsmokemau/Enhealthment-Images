@@ -1,13 +1,10 @@
 import 'package:flutter/material.dart';
 import 'dart:io';
-import 'dart:convert';
 import 'package:dio/dio.dart';
-import 'package:http/http.dart' as http;
 import 'package:image_picker/image_picker.dart';
 import 'package:Enhealthment_app/constants.dart';
 import 'package:flutter/rendering.dart';
 import 'package:Enhealthment_app/zoom_image.dart';
-import 'package:Enhealthment_app/zoom_methods.dart';
 import 'Enhancement.dart';
 
 Enhancement actual_url;
@@ -127,17 +124,14 @@ class _BodyState extends State<Body> {
               height: MediaQuery.of(context).size.height * 0.2 - 27,
               width: MediaQuery.of(context).size.width,
               child: SafeArea(
-                child: Positioned(
-                  bottom: 0,
-                  child: Padding(
-                    padding: const EdgeInsets.all(20),
-                    child: Center(
-                      child: Text("Captura de Imágenes",
-                          style: Theme.of(context).textTheme.headline5.copyWith(
-                              fontWeight: FontWeight.bold,
-                              color: kPrimaryTextColor,
-                              fontSize: 35)),
-                    ),
+                child: Padding(
+                  padding: const EdgeInsets.all(20),
+                  child: Center(
+                    child: Text("Captura de Imágenes",
+                        style: Theme.of(context).textTheme.headline5.copyWith(
+                            fontWeight: FontWeight.bold,
+                            color: kPrimaryTextColor,
+                            fontSize: MediaQuery.of(context).size.width * 0.1)),
                   ),
                 ),
               ),
@@ -149,77 +143,76 @@ class _BodyState extends State<Body> {
                 // ),
               ),
             ),
-            Positioned(
-              bottom: 0,
-              left: 0,
-              right: 0,
-              child: Center(
-                child: Column(
-                  children: [
-                    FlatButton(
-                      padding: const EdgeInsets.all(10),
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(20)),
-                      color: Colors.white,
-                      textColor: kSecondaryColor,
-                      onPressed: () {
-                        _getImageGallery();
-                      },
-                      child: Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 38.0),
-                        child: Text(
-                          "Cargar desde Galería",
-                          style: TextStyle(fontSize: 30),
-                        ),
+            Center(
+              child: Column(
+                children: [
+                  FlatButton(
+                    padding: const EdgeInsets.all(10),
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(20)),
+                    color: Colors.white,
+                    textColor: kSecondaryColor,
+                    onPressed: () {
+                      _getImageGallery();
+                    },
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 38.0),
+                      child: Text(
+                        "Cargar desde Galería",
+                        style: TextStyle(
+                            fontSize: MediaQuery.of(context).size.width * 0.08),
                       ),
                     ),
-                    Padding(
-                      padding: const EdgeInsets.all(30.0),
-                      child: SingleChildScrollView(
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(30.0),
+                    child: SingleChildScrollView(
+                      child: Container(
+                        width: MediaQuery.of(context).size.width,
+                        height: MediaQuery.of(context).size.width,
                         child: Container(
-                          width: MediaQuery.of(context).size.width,
-                          height: MediaQuery.of(context).size.width,
-                          child: Flexible(
-                              child: actual_url != null
-                                  ? InkWell(
-                                      onTap: () {
-                                        Navigator.push(
-                                            context,
-                                            MaterialPageRoute(
-                                                builder: (context) =>
-                                                    ZoomImage()));
-                                      },
-                                      child: Image.network(actual_url.image),
-                                    )
-                                  : Center(
-                                      child: Text(
-                                        'Sube una imagen desde tu galería o toma una foto.',
-                                        style: TextStyle(
-                                            color: kPrimaryTextColor,
-                                            fontSize: 18.0,
-                                            fontWeight: FontWeight.bold),
-                                      ),
-                                    )),
-                        ),
+                            child: actual_url != null
+                                ? InkWell(
+                                    onTap: () {
+                                      Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                              builder: (context) =>
+                                                  ZoomImage()));
+                                    },
+                                    child: Image.network(actual_url.image),
+                                  )
+                                : Center(
+                                    child: Text(
+                                      'Sube una imagen desde tu galería o toma una foto.',
+                                      style: TextStyle(
+                                          color: kPrimaryTextColor,
+                                          fontSize: MediaQuery.of(context)
+                                                  .size
+                                                  .width *
+                                              0.04,
+                                          fontWeight: FontWeight.bold),
+                                    ),
+                                  )),
                       ),
                     ),
+                  ),
 
-                    // Text(enhancements_images.id.toString()),
-                    // Text(enhancements_images.name),
-                    // Text("Correcion_gamma"),
-                    // Image.network(
-                    //   enhancements_images.enhancements[0].image,
-                    // ),
-                    // Text("Correcion_gamma"),
-                    // Image.network(
-                    //   enhancements_images.enhancements[1].image,
-                    // ),
-                    // Text("Correcion_gamma"),
-                    // Image.network(
-                    //   enhancements_images.enhancements[2].image,
-                    // ),
-                  ],
-                ),
+                  // Text(enhancements_images.id.toString()),
+                  // Text(enhancements_images.name),
+                  // Text("Correcion_gamma"),
+                  // Image.network(
+                  //   enhancements_images.enhancements[0].image,
+                  // ),
+                  // Text("Correcion_gamma"),
+                  // Image.network(
+                  //   enhancements_images.enhancements[1].image,
+                  // ),
+                  // Text("Correcion_gamma"),
+                  // Image.network(
+                  //   enhancements_images.enhancements[2].image,
+                  // ),
+                ],
               ),
             ),
           ],

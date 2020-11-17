@@ -31,17 +31,14 @@ class _MethodsState extends State<Methods> {
               height: MediaQuery.of(context).size.height * 0.2 - 27,
               width: MediaQuery.of(context).size.width,
               child: SafeArea(
-                child: Positioned(
-                  bottom: 0,
-                  child: Padding(
-                    padding: const EdgeInsets.all(20),
-                    child: Center(
-                      child: Text("Métodos de mejora",
-                          style: Theme.of(context).textTheme.headline5.copyWith(
-                              fontWeight: FontWeight.bold,
-                              color: kPrimaryTextColor,
-                              fontSize: 35)),
-                    ),
+                child: Padding(
+                  padding: const EdgeInsets.all(20),
+                  child: Center(
+                    child: Text("Métodos de mejora",
+                        style: Theme.of(context).textTheme.headline5.copyWith(
+                            fontWeight: FontWeight.bold,
+                            color: kPrimaryTextColor,
+                            fontSize: MediaQuery.of(context).size.width * 0.1)),
                   ),
                 ),
               ),
@@ -55,7 +52,7 @@ class _MethodsState extends State<Methods> {
             Padding(
               padding: const EdgeInsets.symmetric(vertical: 5.0),
               child: SizedBox(
-                height: 25,
+                height: MediaQuery.of(context).size.width * 0.07,
                 child: ListView.builder(
                   scrollDirection: Axis.horizontal,
                   itemCount: categories.length,
@@ -85,7 +82,8 @@ class _MethodsState extends State<Methods> {
                               textAlign: TextAlign.center,
                               style: TextStyle(
                                   color: kPrimaryTextColor,
-                                  fontSize: 18.0,
+                                  fontSize:
+                                      MediaQuery.of(context).size.width * 0.044,
                                   fontWeight: FontWeight.bold),
                             ),
                           )
@@ -123,8 +121,8 @@ class _MethodsState extends State<Methods> {
             ),
             Container(
               margin: EdgeInsets.only(top: 20.0 / 4), //top padding 5
-              height: 2,
-              width: 30,
+              height: MediaQuery.of(context).size.width * 0.005,
+              width: MediaQuery.of(context).size.width * 0.1,
               color:
                   selectedIndex == index ? kSecondaryColor : Colors.transparent,
             ),

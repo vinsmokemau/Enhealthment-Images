@@ -95,7 +95,9 @@ class _MauProfileState extends State<MauProfile> {
         centerTitle: true,
         title: Text(
           'Datos de Contacto',
-          style: TextStyle(color: kPrimaryTextColor),
+          style: TextStyle(
+              color: kPrimaryTextColor,
+              fontSize: MediaQuery.of(context).size.width * 0.07),
         ),
         backgroundColor: Color(0xffbdfbfc),
         actions: [],
@@ -106,7 +108,7 @@ class _MauProfileState extends State<MauProfile> {
         child: SingleChildScrollView(
           child: Column(
             children: [
-              SizedBox(height: 30.0),
+              SizedBox(height: MediaQuery.of(context).size.width * 0.09),
               Padding(
                 padding: EdgeInsets.all(18.0),
                 child: Container(
@@ -128,7 +130,7 @@ class _MauProfileState extends State<MauProfile> {
                   'Vinsmoke Mau',
                   style: TextStyle(
                     color: Colors.black,
-                    fontSize: 32.0,
+                    fontSize: MediaQuery.of(context).size.width * 0.1,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
@@ -145,7 +147,7 @@ class _MauProfileState extends State<MauProfile> {
                       },
                       child: SvgPicture.asset(
                         'assets/icons/facebook.svg',
-                        width: 30.0,
+                        width: MediaQuery.of(context).size.width * 0.09,
                       ),
                     ),
                     GestureDetector(
@@ -154,7 +156,7 @@ class _MauProfileState extends State<MauProfile> {
                       },
                       child: SvgPicture.asset(
                         'assets/icons/twitter.svg',
-                        width: 30.0,
+                        width: MediaQuery.of(context).size.width * 0.09,
                       ),
                     ),
                     GestureDetector(
@@ -163,7 +165,7 @@ class _MauProfileState extends State<MauProfile> {
                       },
                       child: SvgPicture.asset(
                         'assets/icons/instagram.svg',
-                        width: 30.0,
+                        width: MediaQuery.of(context).size.width * 0.09,
                       ),
                     ),
                     GestureDetector(
@@ -172,14 +174,14 @@ class _MauProfileState extends State<MauProfile> {
                       },
                       child: SvgPicture.asset(
                         'assets/icons/github.svg',
-                        width: 30.0,
+                        width: MediaQuery.of(context).size.width * 0.09,
                       ),
                     ),
                   ],
                 ),
               ),
               SizedBox(
-                height: 18.0,
+                height: MediaQuery.of(context).size.width * 0.04,
               ),
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: 12.0, vertical: 12.0),
@@ -187,7 +189,7 @@ class _MauProfileState extends State<MauProfile> {
                   'Contactar',
                   style: TextStyle(
                     color: Colors.white,
-                    fontSize: 24.0,
+                    fontSize: MediaQuery.of(context).size.width * 0.06,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
@@ -284,7 +286,8 @@ class _MauProfileState extends State<MauProfile> {
                             child: Text('Enviar',
                                 style: TextStyle(
                                   color: Colors.white,
-                                  fontSize: 18.0,
+                                  fontSize:
+                                      MediaQuery.of(context).size.width * 0.051,
                                 )),
                           ),
                           color: kSecondaryColor,
@@ -298,7 +301,7 @@ class _MauProfileState extends State<MauProfile> {
                 ),
               ),
               SizedBox(
-                height: 12.0,
+                height: MediaQuery.of(context).size.width * 0.05,
               ),
             ],
           ),
