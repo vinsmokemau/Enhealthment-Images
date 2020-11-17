@@ -131,7 +131,8 @@ class _BodyState extends State<Body> {
                         style: Theme.of(context).textTheme.headline5.copyWith(
                             fontWeight: FontWeight.bold,
                             color: kPrimaryTextColor,
-                            fontSize: MediaQuery.of(context).size.width * 0.1)),
+                            fontSize:
+                                MediaQuery.of(context).size.width * 0.08)),
                   ),
                 ),
               ),
@@ -160,7 +161,7 @@ class _BodyState extends State<Body> {
                       child: Text(
                         "Cargar desde Galería",
                         style: TextStyle(
-                            fontSize: MediaQuery.of(context).size.width * 0.08),
+                            fontSize: MediaQuery.of(context).size.width * 0.07),
                       ),
                     ),
                   ),
@@ -223,7 +224,7 @@ class _BodyState extends State<Body> {
         backgroundColor: kPrimaryBackgroundColor,
         child: Icon(
           Icons.camera,
-          size: 50.0,
+          size: MediaQuery.of(context).size.width * 0.13,
           color: Colors.white,
         ),
         onPressed: () {

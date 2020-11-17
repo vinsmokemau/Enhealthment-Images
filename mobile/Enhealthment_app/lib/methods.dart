@@ -38,7 +38,8 @@ class _MethodsState extends State<Methods> {
                         style: Theme.of(context).textTheme.headline5.copyWith(
                             fontWeight: FontWeight.bold,
                             color: kPrimaryTextColor,
-                            fontSize: MediaQuery.of(context).size.width * 0.1)),
+                            fontSize:
+                                MediaQuery.of(context).size.width * 0.08)),
                   ),
                 ),
               ),
@@ -61,36 +62,30 @@ class _MethodsState extends State<Methods> {
               ),
             ),
             Expanded(
-              child: Padding(
-                padding: const EdgeInsets.all(20.0),
-                child: Container(
-                    height: MediaQuery.of(context).size.height,
-                    width: MediaQuery.of(context).size.width,
-                    child: actual_url != null
-                        ? InkWell(
-                            onTap: () {
-                              Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) => ZoomMethod()));
-                            },
-                            child: Image.network(
-                                actual_url.enhancements[selectedIndex].image))
-                        : Center(
-                            child: Text(
-                              'Sube una imagen en la sección de Captura de Imágenes',
-                              textAlign: TextAlign.center,
-                              style: TextStyle(
-                                  color: kPrimaryTextColor,
-                                  fontSize:
-                                      MediaQuery.of(context).size.width * 0.044,
-                                  fontWeight: FontWeight.bold),
-                            ),
-                          )
-
-                    //
-                    ),
-              ),
+              child: Container(
+                  height: MediaQuery.of(context).size.height,
+                  width: MediaQuery.of(context).size.width,
+                  child: actual_url != null
+                      ? InkWell(
+                          onTap: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => ZoomMethod()));
+                          },
+                          child: Image.network(
+                              actual_url.enhancements[selectedIndex].image))
+                      : Center(
+                          child: Text(
+                            'Sube una imagen en la sección de Captura de Imágenes',
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                                color: kPrimaryTextColor,
+                                fontSize:
+                                    MediaQuery.of(context).size.width * 0.04,
+                                fontWeight: FontWeight.bold),
+                          ),
+                        )),
             ),
           ],
         ),

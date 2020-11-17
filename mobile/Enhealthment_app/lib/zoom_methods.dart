@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:photo_view/photo_view.dart';
 import 'package:Enhealthment_app/body.dart';
 import 'package:Enhealthment_app/constants.dart';
-import 'package:Enhealthment_app/menu.dart';
 import 'package:Enhealthment_app/methods.dart';
 
 String titleAB;
@@ -30,6 +29,13 @@ class ZoomMethod extends StatefulWidget {
 
 class _ZoomMethodState extends State<ZoomMethod> {
   @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    titleAppBar();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Color(0xffbdfbfc),
@@ -40,16 +46,15 @@ class _ZoomMethodState extends State<ZoomMethod> {
             color: kPrimaryTextColor,
           ),
           onPressed: () {
-            Navigator.push(
-                context, MaterialPageRoute(builder: (context) => Menu()));
+            Navigator.pop(context);
           },
         ),
         centerTitle: true,
         title: Text(
-          'Imagen Mejorada',
+          titleAB,
           style: TextStyle(
               color: kPrimaryTextColor,
-              fontSize: MediaQuery.of(context).size.width * 0.07),
+              fontSize: MediaQuery.of(context).size.width * 0.053),
         ),
         backgroundColor: Color(0xffbdfbfc),
         actions: [],

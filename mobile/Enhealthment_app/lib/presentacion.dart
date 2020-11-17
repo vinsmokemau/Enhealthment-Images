@@ -40,7 +40,8 @@ class _PresentacionState extends State<Presentacion> {
                         style: Theme.of(context).textTheme.headline5.copyWith(
                             fontWeight: FontWeight.bold,
                             color: kPrimaryTextColor,
-                            fontSize: MediaQuery.of(context).size.width * 0.1)),
+                            fontSize:
+                                MediaQuery.of(context).size.width * 0.08)),
                   ),
                 ),
               ),
@@ -201,7 +202,7 @@ class _PresentacionState extends State<Presentacion> {
                               child: CircleAvatar(
                                 backgroundColor: kPrimaryBackgroundColor,
                                 backgroundImage:
-                                    AssetImage('assets/icons/camara_rayoz.png'),
+                                    AssetImage('assets/icons/logofondo.png'),
                               ),
                             ),
                             title: Text(
