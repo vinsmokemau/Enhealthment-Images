@@ -7,6 +7,8 @@ import 'package:Enhealthment_app/Antonio.dart';
 import 'package:Enhealthment_app/zoom_image.dart';
 
 bool back = false;
+bool backMethods = false;
+int actualPag = 1;
 
 class Menu extends StatefulWidget {
   @override

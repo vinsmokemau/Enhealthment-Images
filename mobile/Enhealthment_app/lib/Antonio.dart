@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-
 import 'package:url_launcher/url_launcher.dart';
 import 'package:flutter_email_sender/flutter_email_sender.dart';
 import 'package:Enhealthment_app/constants.dart';
-
 import 'package:Enhealthment_app/menu.dart';
 
 class AntonioProfile extends StatefulWidget {

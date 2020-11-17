@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:Enhealthment_app/constants.dart';
 import 'package:Enhealthment_app/body.dart';
+import 'package:Enhealthment_app/zoom_methods.dart';
 
 List<String> categories = [
-  "Ecualización de Histograma",
-  "Ecualización de Histograma Difuso",
-  "Corrección Gamma",
+  'Corrección Gamma',
+  'Ecualización de Histograma',
+  'Ecualización de Histograma Difuso',
+  'Sharpening',
   // "Sharpening"
 ];
 // By default our first item will be selected
@@ -50,43 +52,55 @@ class _MethodsState extends State<Methods> {
                 ),
               ),
             ),
-            Categories(),
-            ImagesEnh(),
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical: 5.0),
+              child: SizedBox(
+                height: 25,
+                child: ListView.builder(
+                  scrollDirection: Axis.horizontal,
+                  itemCount: categories.length,
+                  itemBuilder: (context, index) => buildMethods(index),
+                ),
+              ),
+            ),
+            Expanded(
+              child: Padding(
+                padding: const EdgeInsets.all(20.0),
+                child: Container(
+                    height: MediaQuery.of(context).size.height,
+                    width: MediaQuery.of(context).size.width,
+                    child: actual_url != null
+                        ? InkWell(
+                            onTap: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => ZoomMethod()));
+                            },
+                            child: Image.network(
+                                actual_url.enhancements[selectedIndex].image))
+                        : Center(
+                            child: Text(
+                              'Sube una imagen en la sección de Captura de Imágenes',
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                  color: kPrimaryTextColor,
+                                  fontSize: 18.0,
+                                  fontWeight: FontWeight.bold),
+                            ),
+                          )
+
+                    //
+                    ),
+              ),
+            ),
           ],
         ),
       ),
     );
   }
-}
 
-class Categories extends StatefulWidget {
-  @override
-  _CategoriesState createState() => _CategoriesState();
-}
-
-class _CategoriesState extends State<Categories> {
-  // String dominos(){
-  //   setState(() {
-  //     pathImg =
-  //   });
-  // }
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 20.0),
-      child: SizedBox(
-        height: 25,
-        child: ListView.builder(
-          scrollDirection: Axis.horizontal,
-          itemCount: categories.length,
-          itemBuilder: (context, index) => buildCategory(index),
-        ),
-      ),
-    );
-  }
-
-  Widget buildCategory(int index) {
+  Widget buildMethods(int index) {
     return GestureDetector(
       onTap: () {
         setState(() {
@@ -121,47 +135,117 @@ class _CategoriesState extends State<Categories> {
   }
 }
 
-class ImagesEnh extends StatefulWidget {
-  const ImagesEnh({
-    Key key,
-  }) : super(key: key);
+// class Categories extends StatefulWidget {
+//   @override
+//   _CategoriesState createState() => _CategoriesState();
+// }
 
-  @override
-  _ImagesEnhState createState() => _ImagesEnhState();
-}
+// class _CategoriesState extends State<Categories> {
+//   // String dominos(){
+//   //   setState(() {
+//   //     pathImg =
+//   //   });
+//   // }
 
-class _ImagesEnhState extends State<ImagesEnh> {
-  @override
-  void initState() {
-    // TODO: implement initState
-    super.initState();
-    selectedIndex = selectedIndex;
-  }
+//   @override
+//   Widget build(BuildContext context) {
+//     return Padding(
+//       padding: const EdgeInsets.symmetric(vertical: 20.0),
+//       child: SizedBox(
+//         height: 25,
+//         child: ListView.builder(
+//           scrollDirection: Axis.horizontal,
+//           itemCount: categories.length,
+//           itemBuilder: (context, index) => buildCategory(index),
+//         ),
+//       ),
+//     );
+//   }
 
-  @override
-  Widget build(BuildContext context) {
-    return Expanded(
-      child: Padding(
-        padding: const EdgeInsets.all(20.0),
-        child: Container(
-            height: MediaQuery.of(context).size.height,
-            width: MediaQuery.of(context).size.width,
-            child: actual_url != null
-                ? Image.network(actual_url.enhancements[selectedIndex].image)
-                : Center(
-                    child: Text(
-                      'Sube una imagen en la sección de Captura de Imágenes',
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                          color: kPrimaryTextColor,
-                          fontSize: 18.0,
-                          fontWeight: FontWeight.bold),
-                    ),
-                  )
+//   Widget buildCategory(int index) {
+//     return GestureDetector(
+//       onTap: () {
+//         setState(() {
+//           selectedIndex = index;
+//         });
+//       },
+//       child: Padding(
+//         padding: const EdgeInsets.symmetric(horizontal: 20.0),
+//         child: Column(
+//           crossAxisAlignment: CrossAxisAlignment.start,
+//           children: <Widget>[
+//             Text(
+//               categories[index],
+//               style: TextStyle(
+//                 fontWeight: FontWeight.bold,
+//                 color: selectedIndex == index
+//                     ? kSecondaryColor
+//                     : kPrimaryTextColor,
+//               ),
+//             ),
+//             Container(
+//               margin: EdgeInsets.only(top: 20.0 / 4), //top padding 5
+//               height: 2,
+//               width: 30,
+//               color:
+//                   selectedIndex == index ? kSecondaryColor : Colors.transparent,
+//             ),
+//           ],
+//         ),
+//       ),
+//     );
+//   }
+// }
 
-            //
-            ),
-      ),
-    );
-  }
-}
+// class ImagesEnh extends StatefulWidget {
+//   const ImagesEnh({
+//     Key key,
+//   }) : super(key: key);
+
+//   @override
+//   _ImagesEnhState createState() => _ImagesEnhState();
+// }
+
+// class _ImagesEnhState extends State<ImagesEnh> {
+//   @override
+//   void initState() {
+//     // TODO: implement initState
+//     super.initState();
+//     selectedIndex = selectedIndex;
+//   }
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return Expanded(
+//       child: Padding(
+//         padding: const EdgeInsets.all(20.0),
+//         child: Container(
+//             height: MediaQuery.of(context).size.height,
+//             width: MediaQuery.of(context).size.width,
+//             child: actual_url != null
+//                 ? InkWell(
+//                     onTap: () {
+//                       Navigator.push(
+//                           context,
+//                           MaterialPageRoute(
+//                               builder: (context) => ZoomMethod()));
+//                     },
+//                     child: Image.network(
+//                         actual_url.enhancements[selectedIndex].image))
+//                 : Center(
+//                     child: Text(
+//                       'Sube una imagen en la sección de Captura de Imágenes',
+//                       textAlign: TextAlign.center,
+//                       style: TextStyle(
+//                           color: kPrimaryTextColor,
+//                           fontSize: 18.0,
+//                           fontWeight: FontWeight.bold),
+//                     ),
+//                   )
+
+//             //
+//             ),
+//       ),
+//     );
+//   }
+// }

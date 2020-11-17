@@ -1,4 +1,3 @@
-import 'package:Enhealthment_app/zoom_image.dart';
 import 'package:flutter/material.dart';
 import 'dart:io';
 import 'dart:convert';
@@ -7,7 +6,8 @@ import 'package:http/http.dart' as http;
 import 'package:image_picker/image_picker.dart';
 import 'package:Enhealthment_app/constants.dart';
 import 'package:flutter/rendering.dart';
-
+import 'package:Enhealthment_app/zoom_image.dart';
+import 'package:Enhealthment_app/zoom_methods.dart';
 import 'Enhancement.dart';
 
 Enhancement actual_url;
@@ -189,7 +189,8 @@ class _BodyState extends State<Body> {
                                                 builder: (context) =>
                                                     ZoomImage()));
                                       },
-                                      child: Image.network(actual_url.image))
+                                      child: Image.network(actual_url.image),
+                                    )
                                   : Center(
                                       child: Text(
                                         'Sube una imagen desde tu galería o toma una foto.',
