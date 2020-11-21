@@ -13,11 +13,14 @@ cv2.destroyAllWindows()
 endpoint = 'http://164.90.146.236:8000/api/v1.0/images/'
 
 data = {
-    'name': "saved-img",
+    'name': 'saved_img',
+}
+
+files = {
     'image': open('saved_img.png', 'rb'),
 }
 
-r = requests.post(url=endpoint, files=data)
+r = requests.post(url=endpoint, data=data, files=files)
 
 print(r.text)
 
